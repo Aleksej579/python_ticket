@@ -1,68 +1,63 @@
 from tkinter import *
 
 root = Tk()
-root.title("Example programm python")
+root.title("Python ticket price calculator")
 root.geometry('600x600')
-
-
 
 canvas = Canvas(root, width=600, height=600, bg='#002')
 
-#линии сетки во вертикали
+#grid v
 for y in range(21):
     k = 50*y
     canvas.create_line(10+k, 610, 10+k, 10, width=1, fill='#191938')
 
-#линии сетки по горизонтали
+#grid h
 for x in range(13):
     k = 50*x
     canvas.create_line(10, 10+k, 1010, 10+k, width=1, fill='#191938')
 
-# текстовое поле ввода
-entry_number = Entry(root, width=80, bg='black', fg='green', justify='center')      # создание поля ввода
-entry_number.place(x=10, y=10)                      # расположение поля ввода
+# enter field
+entry_number = Entry(root, width=70, bg='black', fg='green', justify='center')
+entry_number.place(x=10, y=10)
 
-# текстовое поле вывода (результата 1)
-label_rez = Label(root, text= 'три')                # вывода результата
-label_rez.place(x=10, y=100)                        # расположение текстового поля результата
+# enter field (rez 1)
+label_rez = Label(root, text= 'Три', bg='black', fg='yellow')
+label_rez.place(x=10, y=150)
 
 # текстовое поле вывода (результата 2)
-label_rez_2 = Label(root, text= 'пять')             # вывода результата
-label_rez_2.place(x=10, y=150)                      # расположение текстового поля результата
+label_rez_2 = Label(root, text= 'Пять', bg='black', fg='yellow')             # вывода результата
+label_rez_2.place(x=10, y=200)                      # расположение текстового поля результата
 
 # текстовое поле вывода (результата 3)
-label_rez_3 = Label(root, text= 'пять и пять')      # вывода результата
-label_rez_3.place(x=10, y=200)                      # расположение текстового поля результата
+label_rez_3 = Label(root, text= 'Пять и пять', bg='black', fg='yellow')      # вывода результата
+label_rez_3.place(x=10, y=250)                      # расположение текстового поля результата
 
 # текстовое поле вывода (результата 4)
-label_rez_4 = Label(root, text= 'шесть')            # вывода результата
-label_rez_4.place(x=10, y=250)                      # расположение текстового поля результата
+label_rez_4 = Label(root, text= 'Шесть', bg='black', fg='yellow')            # вывода результата
+label_rez_4.place(x=10, y=300)                      # расположение текстового поля результата
 
 # текстовое поле вывода (результата 5)
-label_rez_5 = Label(root, text= 'шесть и пять')     # вывода результата
-label_rez_5.place(x=10, y=300)                      # расположение текстового поля результата
+label_rez_5 = Label(root, text= 'Шесть и пять', bg='black', fg='yellow')     # вывода результата
+label_rez_5.place(x=10, y=350)                      # расположение текстового поля результата
 
 # текстовое поле вывода (результата 6)
-label_rez_6 = Label(root, text= 'десять')           # вывода результата
-label_rez_6.place(x=10, y=350)                      # расположение текстового поля результата
+label_rez_6 = Label(root, text= 'Десять', bg='black', fg='yellow')           # вывода результата
+label_rez_6.place(x=10, y=400)                      # расположение текстового поля результата
 
 # текстовое поле вывода (результата 7)
-label_rez_7 = Label(root, text= 'одиннадцать')      # вывода результата
-label_rez_7.place(x=10, y=400)                      # расположение текстового поля результата
+label_rez_7 = Label(root, text= 'Одиннадцать', bg='black', fg='yellow')      # вывода результата
+label_rez_7.place(x=10, y=450)                      # расположение текстового поля результата
 
 # текстовое поле вывода (результата 8)
-label_rez_8 = Label(root, text= 'двенадцать')       # вывода результата
-label_rez_8.place(x=10, y=450)                      # расположение текстового поля результата
+label_rez_8 = Label(root, text= 'Двенадцать', bg='black', fg='yellow')       # вывода результата
+label_rez_8.place(x=10, y=500)                      # расположение текстового поля результата
 
 # текстовое поле суммы.
-label_rez_rez = Label(root, text= 'результат')          # вывода результата
+label_rez_rez = Label(root, text= 'Результат', bg='blue', fg='white')          # вывода результата
 label_rez_rez.place(x=10, y=550)                        # расположение текстового поля результата
-
 
 def calc():
     rez = entry_number.get().split(" ")
-
-    #print(len(rez))
 
     n = 'кол-во:'
     sum = ' сумма:'
@@ -128,11 +123,18 @@ def calc():
         return int(rez_3_sum) + int(rez_5_sum) + int(rez_5_5_sum) + int(rez_6_sum) + int(rez_6_5_sum) + int(rez_10_sum) + int(rez_11_sum) + int(rez_12_sum)
     label_rez_rez['text'] = f_rez_rez()
 
+# создание кнопки
+btn = Button(
+    root, 
+    text='Submit', 
+    background="red", 
+    foreground="#ccc", 
+    padx="20", 
+    pady="10", 
+    font="10")
 
-
-btn = Button(root, text='Ok', background="red", foreground="#ccc", padx="20", pady="10", font="10")         # создание кнопки
 btn.bind('<Button-1>', lambda event: calc())       # реакция на л.к.м
-btn.place(x=500, y=10)                             # расположение кнопки
+btn.place(x=470, y=70)                             # расположение кнопки
 
 # кнопка с функцией 3
 def fn_btn_3():
@@ -140,7 +142,7 @@ def fn_btn_3():
 
 btn_3 = Button(root, text='3', background="blue", foreground="#ccc", padx="5", pady="10", font="10")
 btn_3.bind('<Button-1>', lambda event: fn_btn_3())
-btn_3.place(x=10, y=50)
+btn_3.place(x=10, y=70)
 
 # кнопка с функцией 5
 def fn_btn_5():
@@ -148,7 +150,7 @@ def fn_btn_5():
 
 btn_5 = Button(root, text='5', background="blue", foreground="#ccc", padx="5", pady="10", font="10")
 btn_5.bind('<Button-1>', lambda event: fn_btn_5())
-btn_5.place(x=70, y=50) 
+btn_5.place(x=50, y=70) 
 
 # кнопка с функцией 5.5
 def fn_btn_5_5():
@@ -156,7 +158,7 @@ def fn_btn_5_5():
 
 btn_5 = Button(root, text='5.5', background="blue", foreground="#ccc", padx="5", pady="10", font="10")
 btn_5.bind('<Button-1>', lambda event: fn_btn_5_5())
-btn_5.place(x=130, y=50)
+btn_5.place(x=90, y=70)
 
 # кнопка с функцией 6
 def fn_btn_6():
@@ -164,7 +166,7 @@ def fn_btn_6():
 
 btn_6 = Button(root, text='6', background="blue", foreground="#ccc", padx="5", pady="10", font="10")
 btn_6.bind('<Button-1>', lambda event: fn_btn_6())
-btn_6.place(x=200, y=50)
+btn_6.place(x=150, y=70)
 
 # кнопка с функцией 6.5
 def fn_btn_6_5():
@@ -172,7 +174,7 @@ def fn_btn_6_5():
 
 btn_6_5 = Button(root, text='6.5', background="blue", foreground="#ccc", padx="5", pady="10", font="10")
 btn_6_5.bind('<Button-1>', lambda event: fn_btn_6_5())
-btn_6_5.place(x=260, y=50)
+btn_6_5.place(x=200, y=70)
 
 # кнопка с функцией 10
 def fn_btn_10():
@@ -180,7 +182,7 @@ def fn_btn_10():
 
 btn_10 = Button(root, text='10', background="blue", foreground="#ccc", padx="5", pady="10", font="10")
 btn_10.bind('<Button-1>', lambda event: fn_btn_10())
-btn_10.place(x=330, y=50)
+btn_10.place(x=260, y=70)
 
 # кнопка с функцией 11
 def fn_btn_11():
@@ -188,7 +190,7 @@ def fn_btn_11():
 
 btn_11 = Button(root, text='11', background="blue", foreground="#ccc", padx="5", pady="10", font="10")
 btn_11.bind('<Button-1>', lambda event: fn_btn_11())
-btn_11.place(x=390, y=50)
+btn_11.place(x=310, y=70)
 
 # кнопка с функцией 12
 def fn_btn_12():
@@ -196,7 +198,7 @@ def fn_btn_12():
 
 btn_12 = Button(root, text='12', background="blue", foreground="#ccc", padx="5", pady="10", font="10")
 btn_12.bind('<Button-1>', lambda event: fn_btn_12())
-btn_12.place(x=440, y=50)
+btn_12.place(x=370, y=70)
 
 
 canvas.pack()
